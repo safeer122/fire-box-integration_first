@@ -1,7 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_base/Ui/firestore/firestore_list_screen.dart';
 import 'package:firebase_base/Ui/home.dart';
 import 'package:firebase_base/Ui/screen2.dart';
 import 'package:firebase_base/Ui/toast_message.dart';
+import 'package:firebase_base/Ui/upload_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 class Screen1 extends StatefulWidget {
@@ -62,7 +64,7 @@ class _Screen1State extends State<Screen1> {
                   auth.signInWithEmailAndPassword(
                       email: email.text, password: password.text)
                       .then((value) => {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext a)=>home()))
+                    Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext a)=>UploadImageScreen()))
                   })
                       .onError((error, stackTrace) => ToastMessage()
                       .toastmessage(message: error.toString()));
