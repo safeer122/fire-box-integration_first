@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_base/Ui/firestore/firestore_list_screen.dart';
+import 'package:firebase_base/Ui/forgot_password.dart';
 import 'package:firebase_base/Ui/home.dart';
 import 'package:firebase_base/Ui/screen2.dart';
 import 'package:firebase_base/Ui/toast_message.dart';
@@ -64,7 +65,7 @@ class _Screen1State extends State<Screen1> {
                   auth.signInWithEmailAndPassword(
                       email: email.text, password: password.text)
                       .then((value) => {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext a)=>UploadImageScreen()))
+                    Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext a)=>home()))
                   })
                       .onError((error, stackTrace) => ToastMessage()
                       .toastmessage(message: error.toString()));
@@ -81,12 +82,22 @@ class _Screen1State extends State<Screen1> {
                   ),),
                 ),
               ),
+              Padding(
+                padding:EdgeInsets.only(left: 80.w,top: 20.h),
+                child:TextButton(onPressed: (){
+                  Navigator.push(context,
+                  MaterialPageRoute(builder: (context)=>forgotpassword()));
+                }, child:Text("forgot password" ,
+                )
+
+              ),
+              ),
               SizedBox(height: 30.h,),
               Padding(
                 padding: EdgeInsets.only(left: 80.w),
                 child: Row(
                   children: [
-                    Text("Already have an account?",style: TextStyle(
+                    Text("Don't have an account?",style: TextStyle(
                       fontWeight: FontWeight.w400,
                       fontSize: 12.sp,
                       color: Color(0xff000000),

@@ -7,6 +7,8 @@ import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'firestore/firestore_list_screen.dart';
+
 class home extends StatefulWidget {
   const home({super.key});
 
@@ -103,6 +105,10 @@ class _homeState extends State<home> {
                   }
                 }),
           ),
+          TextButton(onPressed: (){
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (_)=>firestorescreen()));
+          }, child: Text('next'))
         ],
       ),
       floatingActionButton: FloatingActionButton(

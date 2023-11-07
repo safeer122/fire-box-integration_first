@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_base/Ui/firestore/add_data.dart';
+import 'package:firebase_base/Ui/upload_image.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
@@ -66,6 +67,10 @@ class _firestorescreenState extends State<firestorescreen> {
                   }),
             );
               }),
+          TextButton(onPressed: (){
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (_)=>UploadImageScreen()));
+          }, child: Text('Upload image'))
 
         ],
       ),
